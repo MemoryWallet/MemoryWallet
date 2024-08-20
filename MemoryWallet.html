@@ -69,10 +69,11 @@
 
     <div id="login-box">
       <h1>Memory Wallet</h1>
-      <p>A Bitcoin <-> Monero Brain + Paper Wallet Generator<br /> </p>
+      <p>Use a Passphrase to generate Monero and BIP39 (Bitcoin, Etherium, Litecoin, etc ) wallets. <br /> </p><!-- v1.0.0.2 -->
       <form class="x-login">
         <fieldset class="x-email">
-          <input id="xprime" class="form-control" placeholder="Passphrase over 30 characters" autocomplete="off" oninput="updateButton()">
+          <input id="xprime" class="form-control" placeholder="Passphrase" autocomplete="off" oninput="updateButton()">
+		  <!-- v1.0.0.2 was placeholder="Passphrase over 30 characters" -->
         </fieldset>
 
         <div id="progress" style="display:none">
@@ -104,20 +105,22 @@
      </div>
 
             <h1 class="text-center">Mnemonic Code Converter</h1>
-            <p class="version">v1.0.0.1</p><!-- v1.0.0.1 -->
-            <hr>
+            <p class="version">v1.0.0.2</p><!-- v1.0.0.2 -->
+             <p class="text-center">Use a BIP39 12 or 24 word Mnemonic seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero Mnemonic seed. <br /> </p><!-- v1.0.0.2 -->
+				<!-- v1.0.0.2 was Use BIP39 12 or 24 word seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero seed and wallet.-->
+		 	<hr>
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Mnemonic</h2>
+                    <!-- v1.0.0.2 <h2>Mnemonic</h2> -->
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-10">
-                                <p>You can enter an existing BIP39 mnemonic, or generate a new random one. Typing your own twelve words will probably not work how you expect, since the words require a particular structure (the last word contains a checksum).</p>
+                                <!-- v1.0.0.2 <p>You can enter an existing BIP39 mnemonic, or generate a new random one. Typing your own twelve words will probably not work how you expect, since the words require a particular structure (the last word contains a checksum).</p>
                                 <p>
                                     For more info see the
                                     <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki" target="_blank">BIP39 spec</a>.
-                                </p>
+                                </p> --> 
                             </div>
                         </div>
                         <div class="form-group generate-container">
@@ -125,7 +128,7 @@
                             <div class="col-sm-10">
                                 <div class="form-inline">
                                     <div class="input-group-inline">
-                                         <span>Generate a random mnemonic</span>:
+                                         <!-- <span>Generate a random mnemonic</span>:
                                         <button class="btn generate" ><b>GENERATE</b></button>
                                         <select id="strength" class="strength form-control">
                                             <option value="3">3</option>
@@ -137,7 +140,7 @@
                                             <option value="21">21</option>
                                             <option value="24" selected>24</option>
                                         </select>
-                                        <span>words, or enter your own below</span>.
+                                        <span>words, or enter your own below</span>. -->
                                         <p class="warning help-block hidden">
                                             <span class="text-danger">
                                                 Mnemonics with less than 12 words have low entropy and may be guessed by an attacker.
@@ -158,8 +161,9 @@
                             <div class="form-group">
                                 <label for="entropy" class="col-sm-2 control-label">Entropy</label>
                                 <div class="col-sm-7">
-                                    <textarea id="entropy" rows="2" class="entropy private-data form-control" placeholder="Accepts either binary, base 6, 6-sided dice, base 10, hexadecimal or cards" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
-                                    <div class="row filter-warning text-danger hidden">
+                                    <textarea id="entropy" rows="2" class="entropy private-data form-control" placeholder="Accepts hexadecimal" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                    <!-- v1.0.0.2 was placeholder="Accepts either binary, base 6, 6-sided dice, base 10, hexadecimal or cards" -->
+									<div class="row filter-warning text-danger hidden">
                                         <p class="col-sm-12">
                                         <strong>
                                         Some characters have been discarded
@@ -229,6 +233,7 @@
                                         <input type="number" class="form-control hidden" id="pbkdf2-custom-input" value="1" min="1" pattern="[0-9]" style="float: right;width: 40%;">
                                     </div>
                                 </div>
+								<!-- v1.0.0.2
                                 <div class="col-sm-3">
                                     <p>Valid entropy values include:</p>
                                     <ul>
@@ -239,7 +244,7 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <label>
+											<label>
                                                 <input type="radio" name="entropy-type" value="base 6">
                                                 <strong>Base 6</strong> [0-5]<br>123434014
                                             </label>
@@ -262,7 +267,7 @@
                                                 <strong>Hex</strong> [0-9A-F]<br>4187a8bfd9
                                             </label>
                                         </li>
-                                        <li>
+										<li>
                                             <label>
                                                 <input type="radio" name="entropy-type" value="card">
                                                 <strong>Card</strong> [A2-9TJQK][CDHS]<br>ahqs9dtc
@@ -270,6 +275,7 @@
                                         </li>
                                     </ul>
                                 </div>
+								v1.0.0.2 -->
                             </div>
                         </div>
                         <div class="form-group">
@@ -304,7 +310,7 @@
                             <div class="col-sm-10 languages">
                                 <div class="form-control no-border">
                                     <a href="#english">English</a>
-                                    <a href="#japanese" title="Japanese">日本語</a>
+                                    <!-- v.1.0.0.2 <a href="#japanese" title="Japanese">日本語</a>
                                     <a href="#spanish"  title="Spanish">Español</a>
                                     <a href="#chinese_simplified"  title="Chinese (Simplified)">中文(简体)</a>
                                     <a href="#chinese_traditional"  title="Chinese (Traditional)">中文(繁體)</a>
@@ -312,7 +318,7 @@
                                     <a href="#italian"  title="Italian">Italiano</a>
                                     <a href="#korean"  title="Korean">한국어</a>
                                     <a href="#czech" title="Czech">Čeština</a>
-                                    <a href="#portuguese" title="Portuguese">Português</a>
+                                    <a href="#portuguese" title="Portuguese">Português</a> v.1.0.0.2 -->
                                 </div>
                             </div>
                         </div>
