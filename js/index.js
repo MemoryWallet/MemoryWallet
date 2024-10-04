@@ -10,7 +10,7 @@
   let alc_shownXMR = false;
   let phraseM = xmr_failure;
   let set_phraseM = false;
-  let hadEntropy = false; // MW 240904
+  // v1.0.0.4 REVERT let hadEntropy = false; // MW 240904
   
   let GLOBAL_SHARE_COUNTER = 0;
   const SUPPORTED_ALT_COINS = ['litecoin', 'ethereum', 'segwit', 'oxen', 'monero', 'solana'];
@@ -232,7 +232,7 @@
       makeQRImage(`qr-nxtpri`, passphrase);
       x = generateAltCoins(result.private, power, params.entropy);
       generateEOS(result.private);
-	  hidePending(); // MW 240904
+// v1.0.0.4 REVERT	  hidePending(); // MW 240904
     });
   }
 
@@ -758,7 +758,7 @@
     if (alc_xmrpublickey == xmr_failure) {
 		// Here the entropy is passed in from the mnemonic (and salt, if used originally) being entered on webpage
 		var theEntropy = mnemonic.toRawEntropyHex(DOM.phrase.val());
-		hadEntropy = true; // MW 240904
+// v1.0.0.4 REVERT		hadEntropy = true; // MW 240904
 		generateCoins(theEntropy);
 	}
 	/**/
@@ -2179,7 +2179,8 @@
 
                 addAddressToList(indexText, address, pubkey, privkey);
                 if (isLast) {
-                    if (!hadEntropy) hidePending(); // MW 240904
+					hidePending(); // v1.0.0.4 REVERT
+				// v1.0.0.4 REVERT               if (!hadEntropy) hidePending(); // MW 240904
                     updateCsv();
                 }
             }, 50)
