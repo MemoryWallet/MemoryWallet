@@ -5,6 +5,7 @@
       updated 119825a on Aug 14, 2022 Thanks xCubicle Blockchain labs https://xcubicle.com -->	
 <!--https://github.com/knaccc/subaddress-js Monero Subaddress javascript utility	89d9a6e  on Feb 7, 2019 
     brought into node.js  browserify --standalone mn_subaddress  bundled into mnsubaddress.js -->
+<!-- v1.0.0.4   remove span within select errors and revert js/index.js MW 240904-->	
 <html>
     <head lang="en">
         <meta charset="utf-8" />
@@ -17,8 +18,9 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="bitcoin mnemonic converter" name="description" />
         <meta content="Ian Coleman" name="author" /> v1.0.0.1 -->
-        <link type="image/x-icon" rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" />
-    </head>
+		<!-- v1.0.0.3  <link type="image/x-icon" rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" /> --v1.0.0.3 -->
+		<link type="image/x-icon" rel="shortcut icon" href="favicon.ico" />
+	</head>
     <body>
         <div class="container">
 
@@ -105,7 +107,7 @@
      </div>
 
             <h1 class="text-center">Mnemonic Code Converter</h1>
-            <p class="version">v1.0.0.2</p><!-- v1.0.0.2 -->
+            <p class="version">v1.0.0.4</p><!-- v1.0.0.4 -->
              <p class="text-center">Use a BIP39 12 or 24 word Mnemonic seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero Mnemonic seed. <br /> </p><!-- v1.0.0.2 -->
 				<!-- v1.0.0.2 was Use BIP39 12 or 24 word seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero seed and wallet.-->
 		 	<hr>
@@ -208,11 +210,11 @@
                                     <div class="col-sm-9">
                                         <select class="mnemonic-length form-control">
                                             <option value="raw" selected>Use Raw Entropy (3 words per 32 bits)</option>
-                                            <option value="12">12 <span>Words</span></option>
-                                            <option value="15">15 <span>Words</span></option>
-                                            <option value="18">18 <span>Words</span></option>
-                                            <option value="21">21 <span>Words</span></option>
-                                            <option value="24">24 <span>Words</span></option>
+                                            <option value="12">12 Words</option><!-- v1.0.0.4 was <span>Words</span>  -->
+                                            <option value="15">15 Words</option><!-- v1.0.0.4 was <span>Words</span>  -->
+                                            <option value="18">18 Words</option><!-- v1.0.0.4 was <span>Words</span>  -->
+                                            <option value="21">21 Words</option><!-- v1.0.0.4 was <span>Words</span>  -->
+                                            <option value="24">24 Words</option><!-- v1.0.0.4 was <span>Words</span>  -->
                                         </select>
                                         <p class="weak-entropy-override-warning hidden">
                                             <span class="text-danger">
@@ -223,12 +225,12 @@
                                     <label class="col-sm-3 control-label">PBKDF2 rounds</label>
                                     <div class="col-sm-9">
                                         <select class="pbkdf2-rounds form-control" style="width: 60%;float: left;">
-                                            <option value="2048" selected>2048 <span>(compatibility)</span></option>
-                                            <option value="4096">4096 <span>iterations</span></option>
-                                            <option value="8192">8192 <span>iterations</span></option>
-                                            <option value="16384">16384 <span>iterations</span></option>
-                                            <option value="32768">32768 <span>iterations</span></option>
-                                            <option value="custom">Custom <span>iterations</span></option>
+                                            <option value="2048" selected>2048 (compatibility)</option><!-- v1.0.0.4 was <span>(compatibility)</span>  -->
+                                            <option value="4096">4096 iterations</option><!-- v1.0.0.4 was <span>iterations</span>  -->
+                                            <option value="8192">8192 iterations</option><!-- v1.0.0.4 was <span>iterations</span>  -->
+                                            <option value="16384">16384 iterations</option><!-- v1.0.0.4 was <span>iterations</span>  -->
+                                            <option value="32768">32768 iterations</option><!-- v1.0.0.4 was <span>iterations</span>  -->
+                                            <option value="custom">Custom iterations</option><!-- v1.0.0.4 was <span>iterations</span>  -->
                                         </select>
                                         <input type="number" class="form-control hidden" id="pbkdf2-custom-input" value="1" min="1" pattern="[0-9]" style="float: right;width: 40%;">
                                     </div>
