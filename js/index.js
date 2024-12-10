@@ -10,7 +10,8 @@
   let alc_shownXMR = false;
   let phraseM = xmr_failure;
   let set_phraseM = false;
-  // v1.0.0.4 REVERT let hadEntropy = false; // MW 240904
+  let hadEntropy = false; // MW 240904
+  let Calculating = 0; // MW 240904
   
   let GLOBAL_SHARE_COUNTER = 0;
   const SUPPORTED_ALT_COINS = ['litecoin', 'ethereum', 'segwit', 'oxen', 'monero', 'solana'];
@@ -148,6 +149,7 @@
   });
 
   function setMnemonicFromEntropy(entropyStr) {
+	  console.log('setMnemonicFromEntropy ALC has str',entropyStr);// MW 240904
       var mnemonics = { "english": new Mnemonic("english") };
       var mnemonic = mnemonics["english"];
       // Get entropy value
@@ -201,6 +203,7 @@
   }
 
   function generateCoins(entropy) {
+	console.log('generateCoins',entropy); // MW 241209
     let power = $('input[name="power-level"]:checked').val();;
     setResult('.date', 'Created ' + createdDate);
     const params = {
@@ -232,7 +235,8 @@
       makeQRImage(`qr-nxtpri`, passphrase);
       x = generateAltCoins(result.private, power, params.entropy);
       generateEOS(result.private);
-// v1.0.0.4 REVERT	  hidePending(); // MW 240904
+	  console.log('hidePending 1 generate'); // ALC
+	  hidePending(); // MW 240904
     });
   }
 
@@ -281,7 +285,8 @@
       });
     }
     $('#result').toggle();
-    $('#login-box').toggle();
+	console.log('NO login-box toggle 1');// MW 241209
+    //$('#login-box').toggle();// MW 241209
     $('.result-btn').toggle();
 	return xmrpublickey;
   }
@@ -305,6 +310,7 @@
       if (answer) {
         $('.result-btn').toggle();
         $('#result').toggle();
+		console.log('login-box toggle 2');// MW 241209
         $('#login-box').toggle();
         $('#login-box .form-control').val('');
         $('#login-box fieldset').attr('disabled', false);
@@ -379,6 +385,7 @@
   }
 
   function validateKeys(coin, addresses) { 
+    console.log('validateKeys ALC', coin);
     const coinKeys = getDefinedKeyLength(coin);
 
     if(Object.prototype.toString.apply(coinKeys) !== "[object Object]") return; 
@@ -392,10 +399,12 @@
       }
 	 if(coin == 'xmr') { //MW230626 
 		 phraseM = addresses.reducedMnemonic;//MW230626
-         if (!set_phraseM && $('#xprime').val() == '') {
+         // MW 241209 if (!set_phraseM && $('#xprime').val() == '') {
 		   DOM.phraseM.val(phraseM);
            set_phraseM = true;
-		 }		   
+		   console.log('Have set phraseM, calling entropyChanged'); // MW 241209
+		   entropyChanged(); // MW 241209
+		 //}		   
 	 }
     }
   }
@@ -743,31 +752,44 @@
             DOM.generateContainer.addClass("hidden");
             /*DOM.phrase.prop("readonly", true);*/
             DOM.entropy.focus();
+			console.log('call 1 entropyChanged');// MW 241209
             entropyChanged();
         }
         else {
             DOM.entropyContainer.addClass("hidden");
             DOM.generateContainer.removeClass("hidden");
             DOM.phrase.prop("readonly", false);
+			console.log('hidePending 2 setEntropyVisibility'); // MW 241209
             hidePending();
         }
     }
 
     function delayedPhraseChanged() {
+	console.log('delayedPhraseChanged, Calculating =',Calculating); // MW 241209
+	/**/
+	if (Calculating > 2) { // MW 241209
+		set_phraseM = false;
+		phraseM = xmr_failure;
+		alc_xmrpublickey = xmr_failure;
+		DOM.phraseM.val('');
+		Calculating = 0;
+	}
 	/**/
     if (alc_xmrpublickey == xmr_failure) {
 		// Here the entropy is passed in from the mnemonic (and salt, if used originally) being entered on webpage
 		var theEntropy = mnemonic.toRawEntropyHex(DOM.phrase.val());
-// v1.0.0.4 REVERT		hadEntropy = true; // MW 240904
+		hadEntropy = true; // MW 240904
 		generateCoins(theEntropy);
 	}
 	/**/
+
     if(isUsingAutoCompute()) {
         hideValidationError();
         seed = null;
         bip32RootKey = null;
         bip32ExtendedKey = null;
         clearAddressesList();
+		console.log('showPending 1 delayedPhraseChanged'); // MW 241209
         showPending();
         if (phraseChangeTimeoutEvent != null) {
             clearTimeout(phraseChangeTimeoutEvent);
@@ -790,6 +812,7 @@
     }
 
     function phraseChanged() {
+		console.log('showPending 2 phraseChanged'); // MW 241209
         showPending();
         setMnemonicLanguage();
         // Get the mnemonic phrase
@@ -810,6 +833,7 @@
     }
 
     function tabChanged() {
+		console.log('showPending 3 tabChanged'); // ALC
         showPending();
         adjustNetworkForSegwit();
         var phrase = DOM.phrase.val();
@@ -846,6 +870,7 @@
 
     function delayedEntropyChanged() {
         hideValidationError();
+		console.log('showPending 4 delayedEntropyChanged'); // MW 241209
         showPending();
         if (entropyChangeTimeoutEvent != null) {
             clearTimeout(entropyChangeTimeoutEvent);
@@ -872,6 +897,7 @@
         }
     }
     function entropyChanged() {
+		console.log('entropyChanged'); // MW 241209
         // If blank entropy, clear mnemonic, addresses, errors
         if (DOM.entropy.val().trim().length == 0) {
             clearDisplay();
@@ -896,12 +922,14 @@
             }
         }
         else {
+			console.log('hidePending 3 entropyChanged'); // MW 241209
             hidePending();
         }
     }
 
     function entropyTypeChanged() {
         entropyTypeAutoDetect = false;
+		console.log('call 2 entropyChanged'); // MW 241209
         entropyChanged();
     }
 
@@ -914,6 +942,7 @@
             }
         }
         hideValidationError();
+		console.log('showPending 5 delayedSeedChanged'); // MW 241209
         showPending();
         // Clear existing mnemonic and passphrase
         DOM.phrase.val("");
@@ -938,6 +967,7 @@
             }
         }
         hideValidationError();
+		console.log('showPending 6 delayedRootKeyChanged'); // MW 241209
         showPending();
         // Clear existing mnemonic and passphrase
         DOM.phrase.val("");
@@ -951,6 +981,7 @@
     }
 
     function seedChanged() {
+		console.log('showPending 7 seedChanged'); // MW 241209
         showPending();
         hideValidationError();
         seed = DOM.seed.val();
@@ -973,6 +1004,7 @@
     }
 
     function rootKeyChanged() {
+		console.log('showPending 8 rootKeyChanged'); // MW 241209
         showPending();
         hideValidationError();
         var rootKeyBase58 = DOM.rootKey.val();
@@ -1084,10 +1116,12 @@
     function calcForDerivationPath() {
         clearDerivedKeys();
         clearAddressesList();
+		console.log('showPending 9 calcForDerivationPath'); // MW 241209
         showPending();
         // Don't show segwit if it's selected but network doesn't support it
         if (segwitSelected() && !networkHasSegwit()) {
             showSegwitUnavailable();
+			console.log('hidePending 4 calcForDerivationPath'); // MW 241209
             hidePending();
             return;
         }
@@ -1117,6 +1151,7 @@
             return;
         }
         clearDisplay();
+		console.log('showPending 10 generateClicked'); // MW 241209
         showPending();
         setTimeout(function() {
             setMnemonicLanguage();
@@ -1355,7 +1390,14 @@
         var words = phraseToWordArray(phrase);
         // Detect blank phrase
         if (words.length == 0) {
-            return "Blank mnemonic";
+			/* MW 241209*/
+			set_phraseM = false;
+			phraseM = xmr_failure;
+			alc_xmrpublickey = xmr_failure;
+			DOM.phraseM.val('');
+			Calculating = 0;
+			/* MW 241209*/
+			return "Blank mnemonic";
         }
         // Check each word
         for (var i=0; i<words.length; i++) {
@@ -1816,6 +1858,7 @@
                 for (var i=0; i<rows.length; i++) {
                     rows[i].shouldGenerate = false;
                 }
+				console.log('hidePending 5 generationProcesses.push'); // MW 241209
                 hidePending();
             }
 
@@ -2179,8 +2222,11 @@
 
                 addAddressToList(indexText, address, pubkey, privkey);
                 if (isLast) {
-					hidePending(); // v1.0.0.4 REVERT
-				// v1.0.0.4 REVERT               if (!hadEntropy) hidePending(); // MW 240904
+					console.log('hadEntropy =',hadEntropy); // MW 241209
+                    if (!hadEntropy) { console.log('hidePending 6 calculateValues'); hidePending(); } // MW 240904
+					//else MW 241209
+					console.log('Calculating =',Calculating); // MW 241209
+					if (Calculating > 3) { console.log('FINAL KICK'); hidePending(); } // MW 241209
                     updateCsv();
                 }
             }, 50)
@@ -2303,6 +2349,7 @@
     }
 
     function showPending() {
+		Calculating = Calculating + 1; // MW 241209
         DOM.feedback
             .text("Calculating...")
             .show();
@@ -2522,6 +2569,7 @@
     }
 
     function setMnemonicFromEntropy() {
+		console.log('setMnemonicFromEntropy ALC no string'); // MW 241209
         clearEntropyFeedback();
         // Get entropy value
         var entropyStr = DOM.entropy.val();
