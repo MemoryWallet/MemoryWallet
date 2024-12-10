@@ -5,7 +5,8 @@
       updated 119825a on Aug 14, 2022 Thanks xCubicle Blockchain labs https://xcubicle.com -->	
 <!--https://github.com/knaccc/subaddress-js Monero Subaddress javascript utility	89d9a6e  on Feb 7, 2019 
     brought into node.js  browserify --standalone mn_subaddress  bundled into mnsubaddress.js -->
-<!-- v1.0.0.4   remove span within select errors and revert js/index.js MW 240904-->	
+<!-- v1.0.0.4   remove span within select errors and revert js/index.js MW 240904-->
+<!-- v1.0.0.5  leave passphrase (and salt) visible  js/index.js MW 241209-->	
 <html>
     <head lang="en">
         <meta charset="utf-8" />
@@ -18,9 +19,10 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="bitcoin mnemonic converter" name="description" />
         <meta content="Ian Coleman" name="author" /> v1.0.0.1 -->
+        <link type="image/x-icon" rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" />
 		<!-- v1.0.0.3  <link type="image/x-icon" rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" /> --v1.0.0.3 -->
 		<link type="image/x-icon" rel="shortcut icon" href="favicon.ico" />
-	</head>
+    </head>
     <body>
         <div class="container">
 
@@ -74,7 +76,8 @@
       <p>Use a Passphrase to generate Monero and BIP39 (Bitcoin, Etherium, Litecoin, etc ) wallets. <br /> </p><!-- v1.0.0.2 -->
       <form class="x-login">
         <fieldset class="x-email">
-          <input id="xprime" class="form-control" placeholder="Passphrase" autocomplete="off" oninput="updateButton()">
+          <input id="xprime" class="form-control private-data" placeholder="Passphrase" autocomplete="off" oninput="updateButton()">
+		  <!-- v1.0.0.5 was class="form-control" --> 
 		  <!-- v1.0.0.2 was placeholder="Passphrase over 30 characters" -->
         </fieldset>
 
@@ -89,7 +92,8 @@
           <strong id="expert">Expert Options - Encryption/Salt - v20230906</strong>
           <span id="levels">
             <fieldset class="x-salt">
-              <input id="salt" class="form-control" placeholder="Salt" autocomplete="off">
+              <input id="salt" class="form-control private-data" placeholder="Salt" autocomplete="off">
+			   <!-- v1.0.0.5 was class="form-control" -->
             </fieldset>
             <input type="radio" class="power-level" name="power-level" value="16"> Short /
             <input type="radio" class="power-level" name="power-level" value="18"> Warp /
@@ -107,7 +111,7 @@
      </div>
 
             <h1 class="text-center">Mnemonic Code Converter</h1>
-            <p class="version">v1.0.0.4</p><!-- v1.0.0.4 -->
+            <p class="version">v1.0.0.5</p><!-- v1.0.0.5 -->
              <p class="text-center">Use a BIP39 12 or 24 word Mnemonic seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero Mnemonic seed. <br /> </p><!-- v1.0.0.2 -->
 				<!-- v1.0.0.2 was Use BIP39 12 or 24 word seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero seed and wallet.-->
 		 	<hr>
