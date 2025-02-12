@@ -6,7 +6,8 @@
 <!--https://github.com/knaccc/subaddress-js Monero Subaddress javascript utility	89d9a6e  on Feb 7, 2019 
     brought into node.js  browserify --standalone mn_subaddress  bundled into mnsubaddress.js -->
 <!-- v1.0.0.4   remove span within select errors and revert js/index.js MW 240904-->
-<!-- v1.0.0.5  leave passphrase (and salt) visible  js/index.js MW 241209-->	
+<!-- v1.0.0.5  leave passphrase (and salt) visible  js/index.js MW 241209-->
+<!-- v1.0.0.6  generate only monero after scrypt  js/index.js MW 250125 lib\memWallet.js MW 250112 -->	
 <html>
     <head lang="en">
         <meta charset="utf-8" />
@@ -111,7 +112,7 @@
      </div>
 
             <h1 class="text-center">Mnemonic Code Converter</h1>
-            <p class="version">v1.0.0.5</p><!-- v1.0.0.5 -->
+            <p class="version">v1.0.0.6</p><!-- v1.0.0.6 -->
              <p class="text-center">Use a BIP39 12 or 24 word Mnemonic seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero Mnemonic seed. <br /> </p><!-- v1.0.0.2 -->
 				<!-- v1.0.0.2 was Use BIP39 12 or 24 word seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero seed and wallet.-->
 		 	<hr>
@@ -284,6 +285,7 @@
 								v1.0.0.2 -->
                             </div>
                         </div>
+						<!-- v1.0.0.6
                         <div class="form-group">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-10 checkbox">
@@ -325,9 +327,11 @@
                                     <a href="#korean"  title="Korean">한국어</a>
                                     <a href="#czech" title="Czech">Čeština</a>
                                     <a href="#portuguese" title="Portuguese">Português</a> v.1.0.0.2 -->
-                                </div>
+                        <!-- v1.0.0.6
+								</div>
                             </div>
                         </div>
+						v1.0.0.6 -->
                         <div class="form-group text-danger PBKDF2-infos-danger hidden">
                             <label class="col-sm-2 control-label">Warning</label>
                             <div class="col-sm-10 form-control-static">
@@ -345,6 +349,33 @@
                             <label for="phraseM" class="col-sm-2 control-label">Monero Mnemonic</label>
                             <div class="col-sm-10"> 
                                 <textarea id="phraseM" class="phraseM private-data form-control" data-show-qr autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10 checkbox">
+                                <label>
+                                    <input type="checkbox" class="use-entropy">
+                                    <span>Show entropy details</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10 checkbox">
+                                <label>
+                                    <input type="checkbox" class="privacy-screen-toggle">
+                                    <span>Hide all private info</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10 checkbox">
+                                <label>
+                                    <input type="checkbox" class="autoCompute" checked>
+                                    <span>Auto compute</span>
+                                </label>
                             </div>
                         </div>
                         <div class="form-group">
