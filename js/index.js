@@ -14,7 +14,8 @@
   let Calculating = 0; // MW 240904
   
   let GLOBAL_SHARE_COUNTER = 0;
-  const SUPPORTED_ALT_COINS = ['litecoin', 'ethereum', 'segwit', 'oxen', 'monero', 'solana'];
+  //MW 250125 WAS const SUPPORTED_ALT_COINS = ['litecoin', 'ethereum', 'segwit', 'oxen', 'monero', 'solana'];
+  const SUPPORTED_ALT_COINS = ['monero'];//MW 250125
   const chrome = navigator.userAgent.toLowerCase().indexOf('webkit') > -1;
   if (!chrome) {
     $('#login-box input').each(function () {
@@ -234,7 +235,7 @@
       makeQRImage(`qr-nxtacct`, address);
       makeQRImage(`qr-nxtpri`, passphrase);
       x = generateAltCoins(result.private, power, params.entropy);
-      generateEOS(result.private);
+      //MW 250125 not used generateEOS(result.private);
 	  console.log('hidePending 1 generate'); // ALC
 	  hidePending(); // MW 240904
     });
