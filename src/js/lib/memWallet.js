@@ -16531,13 +16531,15 @@ function warpwallet(password, salt, power, hashSuffix, callback, altCoin=false) 
   var x2 = Buffer.alloc(1, hashSuffix + 1);
 
   var encrypt = encryptStrengh(power, altCoin)
-
+  console.log('memWallet warpwallet password',password,'salt',salt,'power',power,'hashSuffix',hashSuffix,'altCoin', altCoin);//MW 250125 //MW 250112
   scrypt(Buffer.concat([password_buffer, x1]), Buffer.concat([salt_buffer, x1]), encrypt.scrypt, 8, 1, 32, function(error, progress, key1) {
     if(key1) {
+	  console.log('memWallet pbkdf2.pbkdf2 password_buffer',password_buffer,'salt_buffer',salt_buffer,'key1',key1);//MW 250112
       pbkdf2.pbkdf2(Buffer.concat([password_buffer, x2]), Buffer.concat([salt_buffer, x2]), encrypt.pbkdf2, 32, 'sha256', function(err, key2) {
         for (var i = 0; i < 32; i++) {
           key2[i] = key2[i] ^ key1[i];
         }
+		console.log('memWallet after pbkdf2.pbkdf2 key2',key2);//MW 250112
         callback(1, key2);
       });
     }
@@ -22114,7 +22116,7 @@ module.exports = Sha384
         }
 
         var XY = new Uint32Array(64 * r);
-        var V = new Uint32Array(32 * r * N);
+		var V = new Uint32Array(32 * r * N);
 
         var Yi = 32 * r;
 
