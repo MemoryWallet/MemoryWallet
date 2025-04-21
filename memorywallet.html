@@ -112,10 +112,12 @@
      </div>
 
             <h1 class="text-center">Mnemonic Code Converter</h1>
-            <p class="version">v1.0.0.6</p><!-- v1.0.0.6 -->
+            <p class="version">v1.0.0.7</p><!-- v1.0.0.7 -->
              <p class="text-center">Use a BIP39 12 or 24 word Mnemonic seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero Mnemonic seed. <br /> </p><!-- v1.0.0.2 -->
 				<!-- v1.0.0.2 was Use BIP39 12 or 24 word seed (Bitcoin, Etherium, Litecoin, etc ) to generate a 25 word Monero seed and wallet.-->
-		 	<hr>
+			<p class="text-center">If you use Salt, enter that Salt in "Expert Options" above BEFORE entering your BIP39 Mnemonic. </p>
+			<!-- v1.0.0.7 -->
+		 	<hr />
             <div class="row">
                 <div class="col-md-12">
                     <!-- v1.0.0.2 <h2>Mnemonic</h2> -->
@@ -398,15 +400,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="passphrase" class="col-sm-2 control-label">BIP39 Passphrase (optional)</label>
+                            <label for="passphrase" class="col-sm-2 control-label hidden">BIP39 Passphrase (optional)</label><!-- v1.0.0.7 try hiding -->
                             <div class="col-sm-10">
-                                <textarea id="passphrase" class="passphrase private-data form-control" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                <textarea id="passphrase" class="passphrase private-data form-control hidden" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea><!-- v1.0.0.7 try hiding -->
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="seed" class="col-sm-2 control-label">BIP39 Seed</label>
+                            <label for="seed" class="col-sm-2 control-label hidden">BIP39 Seed</label><!-- v1.0.0.7 try hiding -->
                             <div class="col-sm-10">
-                                <textarea id="seed" class="seed private-data form-control" data-show-qr autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                <textarea id="seed" class="seed private-data form-control hidden" data-show-qr autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea><!-- v1.0.0.7 try hiding -->
                             </div>
                         </div>
                         <div class="form-group">
@@ -418,19 +420,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="root-key" class="col-sm-2 control-label">BIP32 Root Key</label>
+                            <label for="root-key" class="col-sm-2 control-label hidden">BIP32 Root Key</label><!-- v1.0.0.7 try hiding -->
                             <div class="col-sm-10">
-                                <textarea id="root-key" class="root-key private-data form-control" data-show-qr autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                <textarea id="root-key" class="root-key private-data form-control hidden" data-show-qr autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea><!-- v1.0.0.7 try hiding -->
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-10">
-                                <label class="control-label text-weight-normal">
+                                <label class="control-label text-weight-normal hidden">
                                     <input type="checkbox" class="showBip85" />
                                     Show BIP85
-                                </label>
+                                </label><!-- v1.0.0.7 try hiding -->
                             </div>
                         </div>
 
