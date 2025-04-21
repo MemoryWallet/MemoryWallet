@@ -3031,13 +3031,13 @@
                 setHdCoin(357);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "ATOM - Cosmos Hub",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoin;
                 setHdCoin(118);
             },
-        },
+        },*/
         /*{
             name: "AUR - Auroracoin",
             onSelect: function() {
@@ -3066,13 +3066,13 @@
                 setHdCoin(278);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "BCA - Bitcoin Atom",
             onSelect: function() {
                 network = libs.bitcoin.networks.atom;
                 setHdCoin(185);
             },
-        },
+        },*/
         {
             name: "BCH - Bitcoin Cash",
             onSelect: function() {
@@ -3094,13 +3094,13 @@
                 setHdCoin(73);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "BLK - BlackCoin",
             onSelect: function() {
                 network = libs.bitcoin.networks.blackcoin;
                 setHdCoin(10);
             },
-        },
+        },*/
         /*{
             name: "BND - Blocknode",
             onSelect: function() {
@@ -3166,20 +3166,20 @@
                 setHdCoin(1);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "BITG - Bitcoin Green",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoingreen;
                 setHdCoin(222);
             },
-        },
-        {
+        },*/
+        /* MW 250329 {
             name: "BTCP - Bitcoin Private",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoinprivate;
                 setHdCoin(183);
             },
-        },
+        },*/
         /*{
             name: "BTCPt - Bitcoin Private Testnet",
             onSelect: function() {
@@ -3187,20 +3187,20 @@
                 setHdCoin(1);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "BSC - Binance Smart Chain",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoin;
                 setHdCoin(60);
             },
-        },
-        {
+        },*/
+        /* MW 250329 {
             name: "BSV - BitcoinSV",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoinsv;
                 setHdCoin(236);
             },
-        },
+        },*/
         /*{
             name: "BTCZ - Bitcoinz",
             onSelect: function() {
@@ -3215,20 +3215,20 @@
                 setHdCoin(218);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "BTG - Bitcoin Gold",
             onSelect: function() {
                 network = libs.bitcoin.networks.bgold;
                 setHdCoin(156);
             },
-        },
-        {
+        },*/
+        /* MW 250329 {
             name: "BTX - Bitcore",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcore;
                 setHdCoin(160);
             },
-        },
+        },*/
         /*{
             name: "CCN - Cannacoin",
             onSelect: function() {
@@ -3279,13 +3279,13 @@
                 setHdCoin(71);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "CPU - CPUchain",
             onSelect: function() {
                 network = libs.bitcoin.networks.cpuchain;
                 setHdCoin(363);
             },
-        },
+        },*/
         /*{
             name: "CRAVE - Crave",
             onSelect: function() {
@@ -3322,13 +3322,13 @@
                 setHdCoin(359);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "DASH - Dash",
             onSelect: function() {
                 network = libs.bitcoin.networks.dash;
                 setHdCoin(5);
             },
-        },
+        },*/
         /*{
             name: "DASH - Dash Testnet",
             onSelect: function() {
@@ -3371,13 +3371,13 @@
                 setHdCoin(1);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "DMD - Diamond",
             onSelect: function() {
                 network = libs.bitcoin.networks.diamond;
                 setHdCoin(152);
             },
-        },
+        },*/
         /*{
             name: "DNR - Denarius",
             onSelect: function() {
@@ -3427,13 +3427,13 @@
                 setHdCoin(78);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "ELA - Elastos",
             onSelect: function () {
                 network = libs.bitcoin.networks.elastos;
                 setHdCoin(2305);
             },
-        },
+        },*/
         /*{
             name: "ELLA - Ellaism",
             segwitAvailable: false,
@@ -3456,13 +3456,13 @@
                 setHdCoin(151);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "EOS - EOSIO",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoin;
                 setHdCoin(194);
             },
-        },
+        },*/
         /*{
             name: "ERE - EtherCore",
             segwitAvailable: false,
@@ -3494,13 +3494,13 @@
                 setHdCoin(60);
             },
           },
-        {
+        /* MW 250329 {
             name: "EWT - EnergyWeb",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoin;
                 setHdCoin(246);
             },
-          },
+          },*/
         /*{
             name: "EXCL - Exclusivecoin",
             onSelect: function() {
@@ -3530,13 +3530,13 @@
                 setHdCoin(235);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "FIRO - Firo (Zcoin rebrand)",
             onSelect: function() {
                 network = libs.bitcoin.networks.firo;
                 setHdCoin(136);
             },
-        },
+        },*/
         /*{
             name: "FIX - FIX",
             onSelect: function() {
@@ -3683,14 +3683,14 @@
                 setHdCoin(26);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "KMD - Komodo",
             bip49available: false,
             onSelect: function() {
                 network = libs.bitcoin.networks.komodo;
                 setHdCoin(141);
             },
-        },
+        },*/
         /*{
             name: "KOBO - Kobocoin",
             bip49available: false,
@@ -3706,13 +3706,13 @@
                 setHdCoin(140);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "LCC - Litecoincash",
             onSelect: function() {
                 network = libs.bitcoin.networks.litecoincash;
                 setHdCoin(192);
             },
-        },
+        },*/
         /*{
             name: "LDCN - Landcoin",
             onSelect: function() {
@@ -3936,13 +3936,13 @@
                 setHdCoin(200);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "ONION - DeepOnion",
             onSelect: function() {
                 network = libs.bitcoin.networks.deeponion;
                 setHdCoin(305);
             },
-        },
+        },*/
         /*{
             name: "ONX - Onixcoin",
             onSelect: function() {
@@ -3950,13 +3950,13 @@
                 setHdCoin(174);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "PART - Particl",
             onSelect: function() {
                 network = libs.bitcoin.networks.particl;
                 setHdCoin(44);
             },
-        },
+        },*/
         /*{
             name: "PHR - Phore",
             onSelect: function() {
@@ -3979,13 +3979,13 @@
                 setHdCoin(164);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "PIVX - PIVX",
             onSelect: function() {
                 network = libs.bitcoin.networks.pivx;
                 setHdCoin(119);
             },
-        },
+        },*/
         /*{
             name: "PIVX - PIVX Testnet",
             onSelect: function() {
@@ -4015,13 +4015,13 @@
                 setHdCoin(81);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "PPC - Peercoin",
             onSelect: function() {
                 network = libs.bitcoin.networks.peercoin;
                 setHdCoin(6);
             },
-        },
+        },*/
         /*{
             name: "PRJ - ProjectCoin",
             onSelect: function() {
@@ -4190,13 +4190,13 @@
                 setHdCoin(0xCAFE);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "STRAT - Stratis",
             onSelect: function() {
                 network = libs.bitcoin.networks.stratis;
                 setHdCoin(105);
             },
-        },
+        },*/
         /*{
             name: "SUGAR - Sugarchain",
             onSelect: function() {
@@ -4225,13 +4225,13 @@
                 setHdCoin(105);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "SYS - Syscoin",
             onSelect: function() {
                 network = libs.bitcoin.networks.syscoin;
                 setHdCoin(57);
             },
-        },
+        },*/
         /*{
             name: "THC - Hempcoin",
             onSelect: function() {
@@ -4357,20 +4357,20 @@
                 setHdCoin(219);
             },
         },*/
-        {
+        /* MW 250329 {
             name: "XBC - Bitcoinplus",
             onSelect: function() {
                 network = libs.bitcoin.networks.bitcoinplus;
                 setHdCoin(65);
             },
-        },
-        {
+        },*/
+        /* MW 250329 {
             name: "XLM - Stellar",
             onSelect: function() {
                 network = libs.stellarUtil.dummyNetwork;
                 setHdCoin(148);
             },
-        },
+        },*/
         {
             name: "XMR - Monero",
             onSelect: function() {
@@ -4449,13 +4449,13 @@
                 setHdCoin(133);
             },
         },
-        {
+        /* MW 250329 {
             name: "ZEN - Horizen",
             onSelect: function() {
                 network = libs.bitcoin.networks.zencash;
                 setHdCoin(121);
             },
-        }
+        } */
         /*{
             name: "XWC - Whitecoin",
             onSelect: function() {
